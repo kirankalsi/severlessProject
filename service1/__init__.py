@@ -19,7 +19,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     client = CosmosClient(endpoint, key)
 
     database_name = "username-db"
-    client.create_database_if_not_exists(id=database_name)
+    database = client.create_database_if_not_exists(id=database_name)
 
     container_name = "Container1"
     container = database.create_container_if_not_exists(
